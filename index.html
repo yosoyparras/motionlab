@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>MotionLab | Physics Simulator</title>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <main class="app">
+
+    <section class="hero">
+      <div>
+        <span class="tag">Interactive Physics Simulator</span>
+        <h1>MotionLab</h1>
+        <p>
+          Explore projectile motion with real-time trajectory rendering,
+          vectors, gravity simulation and height analysis.
+        </p>
+      </div>
+    </section>
+
+    <section class="simulator">
+
+      <div class="controls">
+
+        <h2>Simulation Controls</h2>
+
+        <label>
+          Planet
+          <select id="planet">
+            <option value="9.8">🌍 Earth</option>
+            <option value="1.62">🌙 Moon</option>
+            <option value="3.7">🔴 Mars</option>
+            <option value="24.8">🪐 Jupiter</option>
+          </select>
+        </label>
+
+        <label>
+          Initial Velocity:
+          <span id="velocityValue">50</span> m/s
+
+          <input
+            type="range"
+            id="velocity"
+            min="10"
+            max="100"
+            value="50"
+          />
+        </label>
+
+        <label>
+          Launch Angle:
+          <span id="angleValue">45</span>°
+
+          <input
+            type="range"
+            id="angle"
+            min="5"
+            max="85"
+            value="45"
+          />
+        </label>
+
+        <label>
+          Gravity:
+          <span id="gravityValue">9.8</span> m/s²
+
+          <input
+            type="range"
+            id="gravity"
+            min="1"
+            max="25"
+            step="0.1"
+            value="9.8"
+          />
+        </label>
+
+        <div class="buttons">
+          <button onclick="startSimulation()">Start</button>
+          <button class="secondary" onclick="resetSimulation()">Reset</button>
+        </div>
+
+        <div class="results">
+
+          <div class="result-card">
+            <strong id="rangeResult">0 m</strong>
+            <span>Range</span>
+          </div>
+
+          <div class="result-card">
+            <strong id="heightResult">0 m</strong>
+            <span>Maximum Height</span>
+          </div>
+
+          <div class="result-card">
+            <strong id="timeResult">0 s</strong>
+            <span>Flight Time</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="canvas-container">
+        <canvas id="simulationCanvas"></canvas>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
